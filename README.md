@@ -25,41 +25,13 @@ Apprendre go et faire quelque chose qui pourrait m'etre utile plus tard.
 structure généré par claude.ai
 
 ```
-ponego/
-├── commands/ # Commandes CLI (similaire à Hugo)
-│ ├── build.go # Commande 'ponego build'
-│ ├── serve.go # Commande 'ponego serve'
-│ ├── new.go # Commande 'ponego new'
-│ └── root.go # Configuration cobra de base
-├── config/ # Gestion de la configuration
-│ ├── config.go # Configuration de base
-│ └── default.go # Valeurs par défaut
-├── parser/ # Parsing Markdown/Obsidian
-│ ├── markdown.go # Parser Markdown standard
-│ ├── obsidian.go # Extensions Obsidian spécifiques
-│ └── frontmatter.go # Gestion des métadonnées
-├── output/ # Génération des sorties
-│ ├── html/ # Génération HTML
-│ ├── assets/ # Gestion des assets
-│ └── sitemap.go # Génération sitemap
-├── hugolib/ # (dans notre cas 'ponegolib')
-│ ├── site.go # Logique principale du site
-│ ├── page.go # Structure des pages
-│ └── content.go # Gestion du contenu
-├── common/ # Utilitaires communs
-│ ├── paths.go # Gestion des chemins
-│ └── urls.go # Manipulation URLs
-├── deps/ # Gestion des dépendances
-│ └── deps.go # Injection de dépendances
-├── helpers/ # Fonctions helpers
-├── resources/ # Gestion des ressources
-│ ├── page/ # Templates de pages
-│ └── themes/ # Gestion des thèmes
-├── cmd/ponego/
-│ └── main.go # Point d'entrée
-├── tpl/ # Templates
-├── layouts/ # Layouts par défaut
-└── assets/ # Assets par défaut
+ponego/                    # Racine du projet
+├── go.mod                 # module github.com/yunko006/ponego
+├── internal/
+│   └── ponenotes/
+│       └── ponenotes.go   # package ponenotes
+└── tests/
+    └── ponenotes_test.go  # package ponenotes_test
 ```
 
 # Inspirations :
