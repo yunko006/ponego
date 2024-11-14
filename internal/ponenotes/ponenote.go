@@ -9,11 +9,13 @@ import (
 type PoneNote struct {
 	Title       string
 	Description string
+	Tags        []string
 }
 
 const (
 	titleSeparator       = "Title: "
 	descriptionSeparator = "Description: "
+	tagsSeparator        = "Tags: "
 )
 
 func newPoneNote(noteBody io.Reader) (PoneNote, error) {
@@ -28,5 +30,6 @@ func newPoneNote(noteBody io.Reader) (PoneNote, error) {
 	return PoneNote{
 		Title:       readMetaLine(titleSeparator),
 		Description: readMetaLine(descriptionSeparator),
+		Tags:        strings.Split(readMetaLine(tagsSeparator), ", "),
 	}, nil
 }

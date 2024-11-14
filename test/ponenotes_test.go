@@ -12,8 +12,12 @@ import (
 
 func TestNewPoneNotes(t *testing.T) {
 	const (
-		firstBody  = `Title: Post 1 Description: Description 1`
-		secondBody = `Title: Post 2 Description: Description 2`
+		firstBody = `Title: Post 1
+Description: Description 1
+Tags: tdd, go`
+		secondBody = `Title: Post 2 
+Description: Description 2 
+Tags: rust, borrow-checker`
 	)
 
 	fs := fstest.MapFS{
@@ -31,13 +35,21 @@ func TestNewPoneNotes(t *testing.T) {
 	}
 
 	got := notes[0]
-	want := ponenotes.PoneNote{Title: "Post 1"}
+	want := ponenotes.PoneNote{
+		Title:       "Post 1",
+		Description: "Description 1",
+		Tags:        []string{"tdd", "go"},
+	}
 
 	if !reflect.DeepEqual(got, want) {
 		t.Errorf("got %+v, want %+v", got, want)
 	}
 
-	assertPoneNote(t, notes[0], ponenotes.PoneNote{Title: "Post 1"})
+	assertPoneNote(t, notes[0], ponenotes.PoneNote{
+		Title:       "Post 1",
+		Description: "Description 1",
+		Tags:        []string{"tdd", "go"},
+	})
 }
 
 type StubFailingFS struct {
